@@ -18,7 +18,7 @@ $(document).ready(function () {
     var source = $('#day-template').html();
     var template = Handlebars.compile(source);
 
-    prev.hide();
+    prev.toggleClass("trasparent");
     // print giorno
     printMonth(template, baseMonth);
 
@@ -27,7 +27,7 @@ $(document).ready(function () {
 
     //mesi successivi
     next.click(function(){
-        prev.show();
+        prev.removeClass("trasparent");
 
         if(baseMonth.month() < 11){
             console.log(baseMonth.month())
@@ -38,14 +38,14 @@ $(document).ready(function () {
 
             if(baseMonth.month() == 11 ){
                 console.log("entrato")
-                next.hide();
+                next.addClass("trasparent");
             }
         }
     });
 
     //mesi precedenti
     prev.click(function(){
-        next.show();
+        next.removeClass("trasparent");
 
         if(baseMonth.month() > 0){
             console.log(baseMonth.month())
@@ -56,7 +56,7 @@ $(document).ready(function () {
 
             if(baseMonth.month() == 0 ){
                 console.log("entrato")
-                prev.hide();
+                prev.addClass("trasparent");
             } 
         }
     });
