@@ -1,11 +1,11 @@
 /* General */
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+body{
     font-family: 'Open Sans', sans-serif;
     user-select: none;
 }
@@ -97,7 +97,7 @@ button{
     text-align: center;
 }
 
-.month-list li span:nth-child(1) {
+.month-list li span:nth-child(1){
     padding: 15px;
     margin-bottom: 5px;
     font-weight: bold;
@@ -116,7 +116,7 @@ button{
 }
 
 .month-list li{
-    height: 120px;
+    height: 110px;
 }
 
 .month-list li.d-day{
@@ -124,6 +124,6 @@ button{
     margin: 0 3px;
 }
 
-li.holiday {
+li.holiday{
     color: red;
 }

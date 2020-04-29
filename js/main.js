@@ -30,7 +30,7 @@ $(document).ready(function () {
         prev.removeClass("trasparent");
 
         if(baseMonth.month() < 11){
-            console.log(baseMonth.month())
+            //console.log(baseMonth.month())
             baseMonth = baseMonth.add(1,"M");
             $('.month-list').children().remove();
             printMonth(template, baseMonth);
@@ -48,7 +48,7 @@ $(document).ready(function () {
         next.removeClass("trasparent");
 
         if(baseMonth.month() > 0){
-            console.log(baseMonth.month())
+            //console.log(baseMonth.month())
             baseMonth = baseMonth.subtract(1,"M");
             $('.month-list').children().remove();
             printMonth(template, baseMonth);
@@ -115,6 +115,7 @@ function printHoliday(date) {
             var holidays = res.response;
             $(".no-event-text").html("");
 
+            //controllo se ci sono giorni festivi
             if(holidays.length != 0) {
                 for (var i = 0; i < holidays.length; i++) {
                     var thisHoliday = holidays[i];
@@ -123,16 +124,13 @@ function printHoliday(date) {
     
                     if(listItem) {
                         listItem.addClass('holiday');
-                        listItem.html( "<span>" + listItem.text() + "</span> " + "<span>" + thisHoliday.name + "</span> ");
+                        listItem.html( "<span>" + listItem.text() + "</span> " + "<span>" + thisHoliday.name + "</span> ")
                     }
                 }
             }else{
                 $('.no-event-text').html('No holidays in  ' + date.format('MMMM') + " &#128561 ");
-            }
-
-            
+            } 
         },
-        
         error: function() {
             console.log('Errore chiamata festività'); 
         }
