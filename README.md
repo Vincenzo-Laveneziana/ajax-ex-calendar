@@ -20,7 +20,7 @@ Sarà indispensabile sia per la parte obbligatoria, che per quella facoltativa, 
 
  ​ ​ :desktop_computer: Project Preview:
 
- ​ ​ <img src="img/Cattura.PNG" width= "500px">
+ ​ ​ <img src="img/Cattura.PNG" width= "1000px">
 
 
 #
