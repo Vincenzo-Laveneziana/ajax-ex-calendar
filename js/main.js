@@ -3,12 +3,16 @@
  */
 $(document).ready(function () {
     
+    
     /**
-     * SETUP
-     */
+	 * SETUP
+	*/
 
     // Punto di partenza
     var baseMonth = moment('2018-01-01'); 
+    var prev = $(".prev");
+    var next = $(".next");
+   
 
     // Init Hndlenars
     var source = $('#day-template').html();
@@ -20,12 +24,30 @@ $(document).ready(function () {
     // ottieni festività mese corrente
     printHoliday(baseMonth);
 
+
+    next.click(function() {
+        if(baseMonth.month() < 11){
+            console.log(baseMonth.month())
+            baseMonth = baseMonth.add(1,"M");
+            $('.month-list').children().remove();
+            printMonth(template, baseMonth);
+            printHoliday(baseMonth);
+
+            if(baseMonth.month() == 11 ){
+                console.log("entrato")
+                next.hide();
+                
+            }
+        }
+      
+    });
+
 }); // <-- End doc ready
 
 
 /*************************************
     FUNCTIONS
- *************************************/
+**************************************/
 
 // Stampa a schermo i giorni del mese
 function printMonth(template, date) {

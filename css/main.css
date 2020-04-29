@@ -6,11 +6,16 @@
 
 body {
     font-family: sans-serif;
+    user-select: none;
 }
 
 .container {
     margin: 0 auto;
     text-align: center;
+}
+
+h1{
+    display: inline-block;
 }
 
 li.holiday {
