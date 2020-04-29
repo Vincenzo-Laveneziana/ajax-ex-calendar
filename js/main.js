@@ -18,14 +18,17 @@ $(document).ready(function () {
     var source = $('#day-template').html();
     var template = Handlebars.compile(source);
 
+    prev.hide();
     // print giorno
     printMonth(template, baseMonth);
 
     // ottieni festività mese corrente
     printHoliday(baseMonth);
 
+    //mesi successivi
+    next.click(function(){
+        prev.show();
 
-    next.click(function() {
         if(baseMonth.month() < 11){
             console.log(baseMonth.month())
             baseMonth = baseMonth.add(1,"M");
@@ -36,10 +39,26 @@ $(document).ready(function () {
             if(baseMonth.month() == 11 ){
                 console.log("entrato")
                 next.hide();
-                
             }
         }
-      
+    });
+
+    //mesi precedenti
+    prev.click(function(){
+        next.show();
+
+        if(baseMonth.month() > 0){
+            console.log(baseMonth.month())
+            baseMonth = baseMonth.subtract(1,"M");
+            $('.month-list').children().remove();
+            printMonth(template, baseMonth);
+            printHoliday(baseMonth);
+
+            if(baseMonth.month() == 0 ){
+                console.log("entrato")
+                prev.hide();
+            } 
+        }
     });
 
 }); // <-- End doc ready
@@ -72,7 +91,7 @@ function printMonth(template, date) {
         // imposta dati template
         var context = {
             class: 'day',
-            day: thisDate.format('DD MMMM'),
+            day: thisDate.format('DD'),
             completeDate: thisDate.format('YYYY-MM-DD')
         };
 
@@ -102,7 +121,7 @@ function printHoliday(date) {
 
                 if(listItem) {
                     listItem.addClass('holiday');
-                    listItem.text( listItem.text() + ' - ' + thisHoliday.name );
+                    listItem.html( "<span>" + listItem.text() + "</span> " + "<span>" + thisHoliday.name + "</span> ");
                 }
             }
         },

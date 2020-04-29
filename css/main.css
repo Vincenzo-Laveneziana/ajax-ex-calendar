@@ -1,3 +1,4 @@
+/* General */
 * {
     margin: 0;
     padding: 0;
@@ -9,13 +10,55 @@ body {
     user-select: none;
 }
 
+/* Utility */
+.flex{
+    display: flex;
+}
+
+.flex-vertical-center{
+    display: flex;
+    align-items: center;
+}
+
+.flex-center-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-page{
+    height: calc(100vh - 40px);
+}
+
 .container {
-    margin: 0 auto;
     text-align: center;
 }
 
+/* body */
+
 h1{
     display: inline-block;
+}
+
+.month-list{
+    display: grid;
+    grid-template-columns: repeat(7, 120px);
+    list-style: none;
+}
+
+.month-list li{
+    border: 1px solid black;
+    height: 80px;
+    margin: 0 3px 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+.month-list li.d-day{
+    height: 30px;
+    margin: 0 3px;
 }
 
 li.holiday {

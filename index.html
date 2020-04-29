@@ -9,19 +9,29 @@
 
 <body>
     
-    <div class="container">
+    <div class="container flex-center-center">
         <button class="prev">Prev</button>
         <h1 class="month"></h1>
         <button class="next">Next</button>
+    </div>
 
-        <ul class="month-list"></ul>
+    <div class="container flex-center-center full-page">
+        <ul class="month-list">
+            <li class="d-day">Monday</li>
+            <li class="d-day">Monday</li>
+            <li class="d-day">Monday</li>
+            <li class="d-day">Monday</li>
+            <li class="d-day">Monday</li>
+            <li class="d-day">Monday</li>
+            <li class="d-day">Monday</li>
+        </ul>
     </div>
 
 
     <!-- TEMPLATES HANDLEBARS -->
     <script id="day-template" type="text/x-handlebars-template">
         <li class="{{ class }}" data-complete-date="{{ completeDate }}">
-            {{ day }}
+            <span>{{ day }}</span>
         </li>
     </script>
 
