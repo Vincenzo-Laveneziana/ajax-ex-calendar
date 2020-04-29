@@ -52,11 +52,15 @@ header{
 
 /* body */
 .head{
-     height: 20vh;
+    height: 15vh;
+}
+
+.no-event{
+    height: 10vh;
 }
 
 .foot{
-    height: 80vh;
+    height: 75vh;
     flex-direction: column;
 }
 
@@ -74,12 +78,6 @@ button{
     background: #f74646;
     cursor: pointer;
     outline: none;
-}
-
-button:focus{
-    -webkit-box-shadow: 0px 0px 14px 4px rgba(0,0,0,0.23);
-    -moz-box-shadow: 0px 0px 14px 4px rgba(0,0,0,0.23);
-    box-shadow: 0px 0px 14px 4px rgba(0,0,0,0.23);
 }
 
 .nome-giorni,

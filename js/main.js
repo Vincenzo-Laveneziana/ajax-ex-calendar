@@ -113,18 +113,26 @@ function printHoliday(date) {
         },
         success: function(res) {
             var holidays = res.response;
+            $(".no-event-text").html("");
 
-            for (var i = 0; i < holidays.length; i++) {
-                var thisHoliday = holidays[i];
-
-                var listItem = $('li[data-complete-date="' + thisHoliday.date + '"]');
-
-                if(listItem) {
-                    listItem.addClass('holiday');
-                    listItem.html( "<span>" + listItem.text() + "</span> " + "<span>" + thisHoliday.name + "</span> ");
+            if(holidays.length != 0) {
+                for (var i = 0; i < holidays.length; i++) {
+                    var thisHoliday = holidays[i];
+    
+                    var listItem = $('li[data-complete-date="' + thisHoliday.date + '"]');
+    
+                    if(listItem) {
+                        listItem.addClass('holiday');
+                        listItem.html( "<span>" + listItem.text() + "</span> " + "<span>" + thisHoliday.name + "</span> ");
+                    }
                 }
+            }else{
+                $('.no-event-text').html('No holidays in  ' + date.format('MMMM') + " &#128561 ");
             }
+
+            
         },
+        
         error: function() {
             console.log('Errore chiamata festività'); 
         }
