@@ -52,15 +52,15 @@ header{
 
 /* body */
 .head{
-    height: 15vh;
+    height: 13vh;
 }
 
 .no-event{
-    height: 10vh;
+    height: 8vh;
 }
 
 .foot{
-    height: 75vh;
+    height: 79vh;
     flex-direction: column;
 }
 
@@ -99,7 +99,6 @@ button{
 
 .month-list li span:nth-child(1){
     padding: 15px;
-    margin-bottom: 5px;
     font-weight: bold;
     font-size: 20px;
 }
@@ -107,12 +106,13 @@ button{
 .nome-giorni li:nth-child(6),
 .nome-giorni li:nth-child(7){
     background: #f74646;
+    color: white;
 }
 
 .nome-giorni li{
     background: white;
     line-height: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .month-list li{

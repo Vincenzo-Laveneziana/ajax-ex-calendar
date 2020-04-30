@@ -32,7 +32,6 @@ $(document).ready(function () {
         if(baseMonth.month() < 11){
             //console.log(baseMonth.month())
             baseMonth = baseMonth.add(1,"M");
-            $('.month-list').children().remove();
             printMonth(template, baseMonth);
             printHoliday(baseMonth);
 
@@ -50,7 +49,6 @@ $(document).ready(function () {
         if(baseMonth.month() > 0){
             //console.log(baseMonth.month())
             baseMonth = baseMonth.subtract(1,"M");
-            $('.month-list').children().remove();
             printMonth(template, baseMonth);
             printHoliday(baseMonth);
 
@@ -70,6 +68,7 @@ $(document).ready(function () {
 
 // Stampa a schermo i giorni del mese
 function printMonth(template, date) {
+    $('.month-list').children().remove();
     // numero giorni nel mese
     var daysInMonth = date.daysInMonth();
 
@@ -78,6 +77,19 @@ function printMonth(template, date) {
 
     // Imposta data attribute data visualizzata
     $('.month').attr('data-this-date',  date.format('YYYY-MM-DD'));
+
+    //creazioni di blocchi vuoti
+    var inizioSettimana = date.weekday()-1;
+    for( var i = 0; i < inizioSettimana; i++) {
+        var data = {
+            dayNumber: '',
+            fullDate: ''
+        };
+
+        $('.month-list').append(template(data));
+    }
+
+
 
     // genera giorni mese
     for (var i = 0; i < daysInMonth; i++) {
@@ -90,8 +102,8 @@ function printMonth(template, date) {
 
         // imposta dati template
         var context = {
-            class: 'day',
-            day: thisDate.format('DD'),
+            class: thisDate.format('dddd').toLowerCase(),
+            day: thisDate.date(),
             completeDate: thisDate.format('YYYY-MM-DD')
         };
 
@@ -124,6 +136,7 @@ function printHoliday(date) {
     
                     if(listItem) {
                         listItem.addClass('holiday');
+                        
                         listItem.html( "<span>" + listItem.text() + "</span> " + "<span>" + thisHoliday.name + "</span> ")
                     }
                 }
