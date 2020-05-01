@@ -12,11 +12,31 @@ $(document).ready(function () {
     var baseMonth = moment('2018-01-01'); 
     var prev = $(".prev");
     var next = $(".next");
+    var btnColorDark = $("#colorDark");
+    var btnColorLight = $("#colorLight");
    
 
     // Init Hndlenars
     var source = $('#day-template').html();
     var template = Handlebars.compile(source);
+
+
+    //attivazione modalità dark-light
+    btnColorLight.hide();
+
+    btnColorDark.click(function(){
+        $("#css").attr("href", "css/main2.css");
+        btnColorDark.hide();
+        btnColorLight.show(); 
+    })
+
+    btnColorLight.click(function(){
+        $("#css").attr("href", "css/main.css");
+        btnColorDark.show();
+        btnColorLight.hide();
+    })
+
+
 
     prev.toggleClass("trasparent");
     // print giorno

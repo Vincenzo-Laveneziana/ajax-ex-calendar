@@ -8,6 +8,7 @@
 body{
     font-family: 'Open Sans', sans-serif;
     user-select: none;
+    background: #2b2b2b;
 }
 
 header{
@@ -50,8 +51,7 @@ header{
     background: none; 
 }
 
-
-#colorDark{
+#colorLight{
     background-image: url('../img/contrast-circle-512.png');
     background-size: cover;
     position: absolute;
@@ -63,19 +63,16 @@ header{
     cursor: pointer;
     outline: none;
     animation: rotate 2s;
-    transform: rotate(180deg)
 }
 
 @keyframes rotate {
     from {
-        transform: rotate(0deg);
-    }
-    to {
         transform: rotate(180deg);
     }
+    to {
+        transform: rotate(0deg);
+    }
 }
-
-
 
 
 /* body */
@@ -96,6 +93,7 @@ h1{
     width: 400px;
     text-align: center;
     font-size: 40px;
+    color: white;
 }
 
 .prev,
@@ -107,6 +105,11 @@ h1{
     background: #f74646;
     cursor: pointer;
     outline: none;
+    color: white;
+}
+
+.no-event-text{
+    color: white;
 }
 
 .nome-giorni,
@@ -124,6 +127,7 @@ h1{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    color: white;
 }
 
 .month-list li span:nth-child(1){
@@ -139,9 +143,10 @@ h1{
 }
 
 .nome-giorni li{
-    background: white;
+    background: transparent;
     line-height: 30px;
     margin-bottom: 10px;
+    
 }
 
 .month-list li{
